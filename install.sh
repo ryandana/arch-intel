@@ -114,8 +114,8 @@ sudo systemctl enable NetworkManager
 log "Installing Paru AUR helper..."
 if ! command -v paru &> /dev/null; then
     cd /tmp
-    git clone https://aur.archlinux.org/paru.git
-    cd paru
+    git clone https://aur.archlinux.org/paru-bin.git
+    cd paru-bin
     makepkg -si --noconfirm
     cd ~
     rm -rf /tmp/paru
