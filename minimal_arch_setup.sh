@@ -66,7 +66,9 @@ sudo pacman -S --needed --noconfirm \
     rsync \
     man-db \
     man-pages \
-    bash-completion
+    bash-completion \
+    net-tools \
+    libxcrypt-compat
 
 # ============================================================================
 # INTEL HARDWARE SUPPORT (Alder Lake + Iris Xe)
@@ -83,7 +85,8 @@ sudo pacman -S --needed --noconfirm \
     libva-intel-driver \
     libva-utils \
     intel-gpu-tools \
-    intel-compute-runtime
+    intel-compute-runtime \
+    vpl-gpu-rt
 
 # Network tools
 log "Installing network tools..."
@@ -145,10 +148,8 @@ case $de_choice in
         log "Installing GNOME extensions..."
         paru -S --needed --noconfirm \
             gnome-shell-extension-appindicator \
-            gnome-shell-extension-gsconnect
-        
-        # Install Extension Manager from Flatpak for easier extension management
-        flatpak install -y flathub com.mattjakeman.ExtensionManager
+            gnome-shell-extension-gsconnect \
+            gnome-shell-extension-manager
         
         # Enable GDM
         sudo systemctl enable gdm
@@ -262,7 +263,12 @@ paru -S --needed --noconfirm onlyoffice-bin
 sudo pacman -S --needed --noconfirm \
     ttf-liberation \
     ttf-dejavu \
-    noto-fonts
+    noto-fonts \
+    noto-fonts-emoji \
+    noto-fonts-cjk \
+    noto-fonts-extra \
+    ttf-jetbtains-mono \
+    ttf-firacode-nerd
 
 # Microsoft fonts for better compatibility
 paru -S --needed --noconfirm ttf-ms-fonts
@@ -325,8 +331,6 @@ alias grep='grep --color=auto'
 # Laravel Sail alias
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 
-# Fastfetch on terminal start
-fastfetch
 EOF
 
 # Change default shell to zsh
@@ -349,15 +353,6 @@ paru -Sc --noconfirm
 
 # Update font cache
 fc-cache -fv
-
-# Update desktop database
-update-desktop-database ~/.local/share/applications/ 2>/dev/null || true
-
-# Update mime database
-update-mime-database ~/.local/share/mime/ 2>/dev/null || true
-
-# Generate user directories
-xdg-user-dirs-update
 
 # ============================================================================
 # COMPLETION MESSAGE
