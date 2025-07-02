@@ -118,7 +118,7 @@ if ! command -v paru &> /dev/null; then
     cd paru-bin
     makepkg -si --noconfirm
     cd ~
-    rm -rf /tmp/paru
+    rm -rf /tmp/paru-bin
     log "Paru installed successfully"
 else
     log "Paru already installed"
