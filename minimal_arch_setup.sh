@@ -267,7 +267,7 @@ sudo pacman -S --needed --noconfirm \
     noto-fonts-emoji \
     noto-fonts-cjk \
     noto-fonts-extra \
-    ttf-jetbtains-mono \
+    ttf-jetbrains-mono \
     ttf-firacode-nerd
 
 # Microsoft fonts for better compatibility
