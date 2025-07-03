@@ -178,8 +178,6 @@ log "Installing Flatpak applications..."
 # Gaming applications
 flatpak install -y flathub com.heroicgameslauncher.hgl      # Heroic Games Launcher
 flatpak install -y flathub com.valvesoftware.Steam         # Steam
-flatpak install -y flathub org.libretro.RetroArch         # RetroArch
-flatpak install -y flathub net.lutris.Lutris              # Lutris
 
 # Media and communication
 flatpak install -y flathub com.obsproject.Studio          # OBS Studio
