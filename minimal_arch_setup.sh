@@ -117,7 +117,6 @@ else
 fi
 
 
-# Enable power-profiles-daemon
 sudo pacman -S power-profiles-daemon
 sudo systemctl enable power-profiles-daemon
 
