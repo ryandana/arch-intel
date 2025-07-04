@@ -165,7 +165,7 @@ sudo pacman -S --needed --noconfirm \
 
 # Docker for Laravel Sail (fixed conflict)
 log "Installing Docker..."
-sudo pacman -S --needed --noconfirm docker
+sudo pacman -S --needed --noconfirm docker docker-compose docker-buildx
 
 # Enable Docker service and add user to docker group
 sudo systemctl enable docker
@@ -194,7 +194,7 @@ paru -S --needed --noconfirm ttf-ms-fonts
 log "Installing and configuring Zsh with Oh-My-Zsh..."
 
 # Install Zsh and bat
-sudo pacman -S --needed --noconfirm zsh bat
+sudo pacman -S --needed --noconfirm zsh
 
 # Install Oh-My-Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -209,8 +209,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 # zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
 
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
 
