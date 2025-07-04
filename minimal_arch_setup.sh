@@ -116,8 +116,9 @@ else
     log "Paru already installed"
 fi
 
-sudo pacman -S power-profiles-daemon
+
 # Enable power-profiles-daemon
+sudo pacman -S power-profiles-daemon
 sudo systemctl enable power-profiles-daemon
 
 # ============================================================================
