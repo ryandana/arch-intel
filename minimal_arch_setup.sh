@@ -250,15 +250,6 @@ sudo usermod -aG docker $USER
 
 log "Docker installed successfully (Docker Desktop can be installed separately if needed)"
 
-# ============================================================================
-# ESSENTIAL PRODUCTIVITY SOFTWARE
-# ============================================================================
-
-log "Installing essential productivity software..."
-
-# OnlyOffice (minimal office suite)
-paru -S --needed --noconfirm onlyoffice-bin
-
 # Essential fonts
 sudo pacman -S --needed --noconfirm \
     ttf-liberation \
@@ -345,9 +336,6 @@ log "Cleaning up system..."
 # Remove orphaned packages
 sudo pacman -Rns $(pacman -Qtdq) --noconfirm 2>/dev/null || true
 
-# Clear package cache (keep only 3 most recent versions)
-sudo paccache -rk3
-
 # Clear AUR cache
 paru -Sc --noconfirm
 
@@ -370,7 +358,6 @@ if [[ $de_choice -eq 1 ]]; then
 echo "  ✓ GNOME extensions: Extension Manager, AppIndicator, GSConnect"
 fi
 echo "  ✓ Development tools: VS Code, Node.js (NVM), PHP, Composer, Docker"
-echo "  ✓ OnlyOffice with essential fonts"
 echo "  ✓ Zsh with Oh-My-Zsh and essential plugins"
 echo "  ✓ Flatpak support"
 echo "  ✓ System optimized and cleaned"
