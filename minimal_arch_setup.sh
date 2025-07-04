@@ -116,84 +116,7 @@ else
     log "Paru already installed"
 fi
 
-# ============================================================================
-# DESKTOP ENVIRONMENT SELECTION (MINIMAL)
-# ============================================================================
-
-echo ""
-echo "Select Minimal Desktop Environment:"
-echo "1) GNOME (minimal with essential extensions)"
-echo "2) KDE Plasma (minimal desktop)"
-echo "3) Cinnamon (minimal desktop)"
-echo -n "Enter your choice (1-3): "
-read de_choice
-
-case $de_choice in
-    1)
-        log "Installing minimal GNOME..."
-        sudo pacman -S --needed --noconfirm \
-            gnome-shell \
-            gdm \
-            gnome-control-center \
-            gnome-terminal \
-            gnome-system-monitor \
-            gnome-calculator \
-            gnome-text-editor \
-            nautilus \
-            power-profiles-daemon \
-            xdg-desktop-portal-gnome \
-            gnome-keyring
-        
-        # Install GNOME extensions
-        log "Installing GNOME extensions..."
-        paru -S --needed --noconfirm \
-            gnome-shell-extension-appindicator \
-            gnome-shell-extension-gsconnect \
-            gnome-shell-extension-manager
-        
-        # Enable GDM
-        sudo systemctl enable gdm
-        log "Minimal GNOME installed successfully"
-        ;;
-    2)
-        log "Installing minimal KDE Plasma..."
-        sudo pacman -S --needed --noconfirm \
-            plasma-desktop \
-            plasma-nm \
-            plasma-pa \
-            konsole \
-            dolphin \
-            kate \
-            kcalc \
-            sddm \
-            power-profiles-daemon \
-            xdg-desktop-portal-kde
-        
-        # Enable SDDM
-        sudo systemctl enable sddm
-        log "Minimal KDE Plasma installed successfully"
-        ;;
-    3)
-        log "Installing minimal Cinnamon..."
-        sudo pacman -S --needed --noconfirm \
-            cinnamon \
-            lightdm \
-            lightdm-gtk-greeter \
-            power-profiles-daemon \
-            xdg-desktop-portal-xapp \
-            nemo \
-            gnome-calculator \
-            xed
-        
-        # Enable LightDM
-        sudo systemctl enable lightdm
-        log "Minimal Cinnamon installed successfully"
-        ;;
-    *)
-        error "Invalid choice. Please run the script again and select 1, 2, or 3."
-        ;;
-esac
-
+sudo pacman -S power-profiles-daemon
 # Enable power-profiles-daemon
 sudo systemctl enable power-profiles-daemon
 
@@ -287,6 +210,10 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
+
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
+
 # Configure .zshrc with essential plugins only
 cat > ~/.zshrc << 'EOF'
 # Oh My Zsh configuration
@@ -302,6 +229,8 @@ plugins=(
     nvm
     docker
     archlinux
+    zsh-bat
+    you-should-use
 )
 
 source $ZSH/oh-my-zsh.sh
