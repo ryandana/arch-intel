@@ -148,6 +148,9 @@ sudo pacman -S --needed --noconfirm \
 # Install ProtonPlus from AUR
 paru -S --needed --noconfirm protonplus
 
+#Install Chrome
+paru -S google-chrome
+
 # ============================================================================
 # FLATPAK SUPPORT (Install early for GNOME extensions)
 # ============================================================================
