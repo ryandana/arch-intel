@@ -110,7 +110,8 @@ sudo pacman -S --needed --noconfirm \
     yt-dlp \
     zenity \
     cava \
-    amberol
+    amberol \
+    obs-studio
 
 success "Essential packages installed successfully"
 
